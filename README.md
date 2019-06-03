@@ -4,6 +4,6 @@
 <p><strong>Fullstack CRUD Application - Platform For Managing Students 
 and Campuses</p>
 
-<p>Back-End</p>
+<p>Front-End</p>
 
-<p>CLick for <a href="https://github.com/mundoe1999/CRUD-Student-Front-End">Front-End</a>
+<p>CLick for <a href="https://github.com/gp70/CRUD-Student-Back-End">Back-End</a>

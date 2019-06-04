@@ -25,9 +25,6 @@ nav {
   position: sticky;
   top: 0;
 
-
-
-
   /*Size of Nav*/
   padding: 1.5em 0em;
   width: 100%;
@@ -46,7 +43,20 @@ nav .logo{
 
 }
 
-nav .flex-container{
+.UserDisplay{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.UserDisplay > .UserData{
+  text-align:  left;
+  padding: 0em 1em 0em 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+nav > .flex-container{
       /*Setting Flex display properties*/
       display: flex;
       flex-direction: row;

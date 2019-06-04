@@ -1,15 +1,11 @@
 .App {
   text-align: center;
+  background-image: linear-gradient(#f1c848, #63d8a1);
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
 
 .App-header {
-  background-color: #282c34;
+
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -23,11 +19,63 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+nav {
+  /*Position of Nav*/
+  z-index: 20;
+  position: sticky;
+  top: 0;
+
+
+
+
+  /*Size of Nav*/
+  padding: 1.5em 0em;
+  width: 100%;
+
+
+  /*Nav Color*/
+  background-color: #FFF;
+  opacity: 0.9;
 }
+
+nav .logo{
+  display: block;
+  padding: 0em 1.2em;
+  font-size: 2em;
+
+
+}
+
+nav .flex-container{
+      /*Setting Flex display properties*/
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: space-between;
+  
+}
+
+nav .flex-container > ul { 
+  
+  margin: 0;
+  list-style: none;
+
+  margin-right: 40px; 
+
+    /*Setting Flex display properties*/
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: baseline;
+
+}
+
+nav .flex-container > ul > li { 
+  padding-left: 1em;
+  font-size: 1.3em;
+  color: #000;
+  opacity: 1;
+
+  text-decoration: none;
+
+}
+

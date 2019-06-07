@@ -10,7 +10,7 @@ class NavBar extends Component{
           <Link to='/'><div className="logo">CAMPUS<strong>CONNECT</strong></div></Link>
           <ul>
             <li><Link to='/StudentInfo'>Students</Link></li>
-            <li>Schools</li>
+            <li><Link to='/Campuses'>Schools</Link></li>
           </ul>
         </div>
 

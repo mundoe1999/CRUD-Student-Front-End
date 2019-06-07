@@ -8,7 +8,7 @@ class Home extends Component {
       <div className="App">
         <NavBar />
         <div className="App-header">
-          hi im law, im a poop
+          Collecting the Campus Information, just for you
         </div>
     </div>
     );

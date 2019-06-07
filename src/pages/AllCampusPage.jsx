@@ -5,21 +5,19 @@ import NavBar from '../components/essentials/NavBar'
 
 
 //importing Specific Elements
-import StudentForm from '../components/student/StudentForm';
 
-
-class Home extends Component {
+class AllCampusPage extends Component {
   render(){
     return (
       <div className="App">
         <NavBar />
         <div className="Content">
-          <h1>Student<strong>Profile</strong></h1>
-          <StudentForm />
+          <h1>Campus<strong>Roster</strong></h1>
+          All Campus information goes here
         </div>
     </div>
     );
   }
 }
 
-export default Home;
+export default AllCampusPage;

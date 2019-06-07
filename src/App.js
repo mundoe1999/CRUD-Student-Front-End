@@ -1,37 +1,27 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import PropTypes from 'prop-types';
-
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 //Importing pages
 import Home from './pages/Home'
 import StudentInfoPage from './pages/StudentInfoPage'
+import AllCampusPage from './pages/AllCampusPage'
 
-import StudentForm from './components/student/StudentForm';
-
-import logo from './logo.svg';
+//Importing Stylw
 import './Style.css';
 
 
 class App extends Component{
 
-/*
-      <div className="App">
-        <NavBar />
-        <div className="App-header">
-          <StudentForm/>
-        </div>
-             </div>
-*/
-//        <Route exact path='/campuses' render={}/>
 
   render(){
     const HomeComponent = () => (<Home />);
     const StudentInfoComponent = () => (<StudentInfoPage />)
+    const AllCampusComponent = () => (<AllCampusPage />)
     return(
       <Router>
         <Route exact path='/' render={HomeComponent}/>
         <Route exact path='/StudentInfo' render={StudentInfoComponent}/>
+        <Route exact path='/Campuses' render={AllCampusComponent}/>
       </Router>
 
     );}

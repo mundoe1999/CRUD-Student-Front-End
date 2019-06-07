@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+
+import ImageCard from '../essentials/ImageCard'
+
 /*
   Students must contain:
   - firstName -> First Name
@@ -41,13 +44,21 @@ class StudentForm extends Component{
       return (
         <div className="UserDisplay">
 
-          <img src={this.state.imageurl} height='200px' width='200px'/>
+          <ImageCard imgsrc={this.state.imageurl}/>
 
           <div className="UserData">
-            <div>{this.state.first_name} {this.state.last_name}</div>
-            <div>Email: {this.state.email}</div>
-            <div>GPA: {this.state.gpa}</div>
-            <button onClick={this.changeToEdit}>Edit</button>
+            <div>
+              <h2>{this.state.first_name} {this.state.last_name}</h2>
+              <br></br>
+            </div>
+            <p>
+              Email: {this.state.email}
+            <br></br>
+            <br></br>
+              GPA: {this.state.gpa}
+            </p>
+            <hr/>
+            <button onClick={this.changeToEdit}>Edit Information</button>
           </div>
 
         </div>

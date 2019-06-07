@@ -19,22 +19,58 @@
   color: #61dafb;
 }
 
+.Content {
+  margin-top: 2em;
+  min-height: 100vh;
+  font-size: calc(10px + 2vmin);
+  color: white;
 
+}
+.Content h1{
+  color: black;
+  padding-bottom: 1em;
+}
 
 .UserDisplay{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.UserDisplay > .UserData{
+
+.UserDisplay .UserData{
   text-align:  left;
-  padding: 0em 1em 0em 1em;
+  margin: 1em;
+
   display: flex;
   flex-direction: column;
+
+  padding-left: 2em;
+  border-left: 2px solid #fff;
 }
 
+.UserData h2{
+  margin: 0;
+  padding: 0;
+}
+.UserData p{
+  margin: 1em 0.2em;
+  padding: 0.3em 0em;
+}
 
+.UserData button{
+  font-size: 1em;
+}
+.ImageCard{
+  display: block;
+  width: 350px;
+  height: 400px;
+  padding: 0.4em;
+  background-color: #fff;
+  box-shadow: 8px 8px rgba(0,0,0,0.3);
+  margin-right: 2em;
+}
 
 nav {
   /*Position of Nav*/
@@ -49,7 +85,8 @@ nav {
 
   /*Nav Color*/
   background-color: #FFF;
-  opacity: 0.9;
+  /*box-shadow: 0px 5px rgba(0,0,0,0.3);*/
+  opacity: 1;
 }
 
 nav .logo{

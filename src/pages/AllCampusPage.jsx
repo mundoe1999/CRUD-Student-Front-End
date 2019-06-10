@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 //Importing essentials
 import NavBar from '../components/essentials/NavBar'
 
-
 //importing Specific Elements
 
 class AllCampusPage extends Component {

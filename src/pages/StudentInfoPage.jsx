@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
 //Importing essentials
-import NavBar from '../components/essentials/NavBar'
-
+import NavBar from "../components/essentials/NavBar";
 
 //importing Specific Elements
 import StudentForm from '../components/student/StudentForm';

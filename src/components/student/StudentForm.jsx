@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-
-
-import ImageCard from '../essentials/ImageCard'
+//import PropTypes from 'prop-types';
+import ImageCard from "../essentials/ImageCard";
+import { connect } from 'react-redux';
 
 /*
   Students must contain:
@@ -13,7 +12,45 @@ import ImageCard from '../essentials/ImageCard'
   - gpa -> GPA
 */
 
+const StudentForm = ({ first_name, last_name, email, gpa, imageurl }) => {
+  return(
+    <div className="App">
 
+      <div className="UserDisplay">
+
+      <ImageCard imgsrc={imageurl}/>
+
+      <div className="UserData">
+        <div>
+          <h2>{first_name} {last_name}</h2>
+          <br></br>
+        </div>
+        <p>
+          Email: {email}
+        <br></br>
+        <br></br>
+          GPA: {gpa}
+        </p>
+      </div>
+      </div>
+    </div>
+  );
+};
+
+const mapStateToProps = (state) => {
+  return { first_name: state.first_name,
+           last_name: state.last_name,
+           email: state.email,
+           gpa: state.gpa };
+}
+
+export default connect(mapStateToProps)(StudentForm);
+
+
+
+/* ORIGINAL IMPLEMENTATION BELOW */
+
+/*
 class StudentForm extends Component{
   constructor(props){
     super(props);
@@ -28,7 +65,7 @@ class StudentForm extends Component{
       isHidden: false
     };
 
-    /*Binding fucntions*/
+    //Binding fucntions
 
     this.FirstNameChange = this.FirstNameChange.bind(this);
     this.LastNameChange = this.LastNameChange.bind(this);
@@ -94,9 +131,9 @@ LastNameChange(event){
   });
 } //End LastNameChange
 
-/* 
-  Button Functions
-*/
+ 
+//Button Functions
+
 
 changeToEdit(event){
   this.setState({
@@ -119,4 +156,4 @@ SubmitButton(event){
 }
 
 export default StudentForm;
-
+*/

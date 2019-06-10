@@ -15,15 +15,15 @@ import Home from './pages/Home';
 import StudentInfoPage from './pages/StudentInfoPage';
 import AllCampusPage from './pages/AllCampusPage';
 
+import StudentForm from './components/student/StudentForm'
+
 const student = {
       first_name: 'Lorem',
       last_name: 'ipsum',
       email: 'something@other.com',
       gpa: 2.3,
       imageurl: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
-      t_first_name: '',
-      t_last_name: '',
-      isHidden: false
+
     };
 const store = createStore(reducer, student);
 
@@ -40,6 +40,7 @@ class App extends Component {
           <Route exact path='/StudentInfo' render={StudentInfoComponent}/>
           <Route exact path='/Campuses' render={AllCampusComponent}/>
         </Router>
+        <StudentForm/>
       </Provider>
     )
   }

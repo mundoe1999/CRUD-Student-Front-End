@@ -1,0 +1,22 @@
+{
+  "campuses": {
+    "0": {
+      "name": "Default University",
+      "address": "6969 Cool Street, Alburquelque, New Mexico 42069",
+      "description": "A perfectly generic university located in the middle of nowhere. Specializes in Minecraft Studies.",
+      "imgurl": "https://www.renewablenownetwork.com/wp-content/uploads/2018/10/Generic-university.jpg"
+    },
+    "1": {
+      "name": "Space Institute for Space",
+      "address": "1 Space Avenue, Low Earth Orbit, Earth 00001",
+      "description": "It's in space. Learn all about space here.",
+      "imgurl": "https://static1.squarespace.com/static/58757ed7f5e231cc32494a1b/5b8b4bd10ebbe8ab9ff647bb/5b8b4bd10ebbe8ab9ff647bc/1535827690138/earthring_1024.jpg?format=2500w"
+    },
+    "2": {
+      "name": "Clown College",
+      "address": "1600 Pennsylvania Ave NW, Washington, DC 20500",
+      "description": "Learn how to be a clown from the top minds in clownery.",
+      "imgurl": "https://www.eenews.net/image_assets/2019/04/image_asset_52043.jpg"
+    },
+  }
+}

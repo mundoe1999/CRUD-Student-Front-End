@@ -1,0 +1,28 @@
+{
+  "students": {
+    "0": {
+      "fname": "Sans",
+      "lname": "Undertale",
+      "email": "sans@undertale.com",
+      "gpa": "3.88",
+      "imgurl": "https://vignette.wikia.nocookie.net/vsbattles/images/3/35/Sans_render.png/revision/latest?cb=20160203070904",
+      "campus": "Default University"
+    },
+    "1": {
+      "fname": "Morgana",
+      "lname": "Cat",
+      "email": "lookincooljoker@persona.com",
+      "gpa": "3.07",
+      "imgurl": "https://vignette.wikia.nocookie.net/megamitensei/images/6/68/P5_Morgana_character_artwork.png/revision/latest?cb=20160505181742",
+      "campus": "Default University"
+    },
+    "2": {
+      "fname": "Hatsune",
+      "lname": "Miku",
+      "email": "hellolgbtcommunity@undertale.com",
+      "gpa": "2.65",
+      "imgurl": "https://ec.crypton.co.jp/img/special/vocaloid/img_MIKU_us.png",
+      "campus": "Default University"
+    }
+  }
+}

@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
+
 
 // import ImageCard from '../essentials/ImageCard'
 
@@ -10,7 +12,7 @@ import PropTypes from 'prop-types';
 */
 
 
-class NewStudentList extends Component{
+class StudentList extends Component{
   constructor(){
     var testdata = require('../../testfiles/teststudents.json')
     super();
@@ -95,5 +97,4 @@ generate_table() {
 
 }
 
-export default NewStudentList;
-
+export default StudentList;

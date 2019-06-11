@@ -23,7 +23,6 @@ class StudentInfoPage extends Component {
     this.setState({
       isHidden: !this.state.isHidden
     });
-    console.log('h');
   }
 
   //Rendering Page

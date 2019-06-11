@@ -9,7 +9,7 @@ class NavBar extends Component{
         <div className="flex-container">
           <Link to='/'><div className="logo">CAMPUS<strong>CONNECT</strong></div></Link>
           <ul>
-            <li><Link to='/StudentInfo'>Students</Link></li>
+            <li><Link to='/Students'>Students</Link></li>
             <li><Link to='/Campuses'>Schools</Link></li>
           </ul>
         </div>

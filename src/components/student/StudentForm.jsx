@@ -8,11 +8,11 @@ class StudentForm extends Component{
     this.state = {
       t_first_name: this.props.first_name,
       t_last_name: this.props.last_name,
-      t_email: this.props.email,
+      t_email: this.props.email
 
     };
-    //Binding fucntions
 
+    //Binding fucntions
     this.FirstNameChange = this.FirstNameChange.bind(this);
     this.LastNameChange = this.LastNameChange.bind(this);
     this.EmailChange = this.LastNameChange.bind(this);

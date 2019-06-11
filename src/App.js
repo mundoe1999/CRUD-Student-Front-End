@@ -14,8 +14,7 @@ import './Style.css';
 import Home from './pages/Home';
 import StudentInfoPage from './pages/StudentInfoPage';
 import AllCampusPage from './pages/AllCampusPage';
-
-import StudentForm from './components/student/StudentForm'
+import AllStudentPage from './pages/AllStudentPage';
 
 const student = {
       first_name: 'Lorem',
@@ -33,14 +32,16 @@ class App extends Component {
     const HomeComponent = () => (<Home />);
     const StudentInfoComponent = () => (<StudentInfoPage />);
     const AllCampusComponent = () => (<AllCampusPage />);
+    const AllStudentComponent = () => (<AllStudentPage />);
     return( 
       <Provider store={store}>
         <Router>
           <Route exact path='/' render={HomeComponent}/>
           <Route exact path='/StudentInfo' render={StudentInfoComponent}/>
           <Route exact path='/Campuses' render={AllCampusComponent}/>
+          <Route exact path='/Students' render={AllStudentComponent}/>
         </Router>
-        <StudentForm/>
+
       </Provider>
     )
   }

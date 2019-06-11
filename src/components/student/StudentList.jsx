@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-
 // import ImageCard from '../essentials/ImageCard'
 
 /*
@@ -11,29 +10,32 @@ import PropTypes from 'prop-types';
 */
 
 
-class StudentList extends Component{
-  constructor(props){
-    super(props);
+class NewStudentList extends Component{
+  constructor(){
+    var testdata = require('../../testfiles/teststudents.json')
+    super();
     this.state = {
-      'length': this.props.length,
-      'studentlist': this.props.studentlist
+      'length': Object.keys(testdata.students).length,
+      'studentlist': testdata
     };
 
     this.generate_table = this.generate_table.bind(this);
   }
   render(){
-
       // Button to generate table
       return (
         <div>
-        <input type = "button" value = "Generate table" onClick ={this.generate_table}/>
           <body id="test">
           </body>
         </div>
         )
-}
+  }
 
-generate_table(e) {
+  componentDidMount(){
+    this.generate_table();
+  }
+
+generate_table() {
   // get the reference for the body
   var body = document.getElementById("test");
 
@@ -43,7 +45,8 @@ generate_table(e) {
   var tblBody = document.createElement("tbody");
 
   // creating all cells
-  for (var i = 0; i < this.state.length; i++) {
+  console.log(this.state.length);
+  for (var i = 0; i < this.state.length ; i++) {
     // creates a table row
     var row = document.createElement("tr");
 
@@ -53,24 +56,26 @@ generate_table(e) {
       // the end of the table row
       var cell = document.createElement("td");
       switch(j){
-        case '0':
-          var cellText = document.createTextNode(this.studentlist[i].fname);
+        case 0:
+          var cellText = document.createTextNode(this.state.studentlist.students[i].fname);
           break;
-        case '1':
-          var cellText = document.createTextNode(this.studentlist[i].lname);
+        case 1:
+          var cellText = document.createTextNode(this.state.studentlist.students[i].lname);
           break;
-        case '2':
-          var cellText = document.createTextNode(this.studentlist[i].email);
+        case 2:
+          var cellText = document.createTextNode(this.state.studentlist.students[i].email);
           break;
-        case '3':
-          var cellText = document.createTextNode(this.studentlist[i].gpa);
+        case 3:
+          var cellText = document.createTextNode(this.state.studentlist.students[i].gpa);
           break;
-        case '4':
-          var cellText = document.createTextNode(this.studentlist[i].campus);
+        case 4:
+          var cellText = document.createTextNode(this.state.studentlist.students[i].campus);
           break;
         default:
           var cellText = "error";
       }
+      console.log(typeof cellText);
+      console.log(cellText);
       cell.appendChild(cellText);
       row.appendChild(cell);
     }
@@ -90,5 +95,5 @@ generate_table(e) {
 
 }
 
-export default StudentList;
+export default NewStudentList;
 

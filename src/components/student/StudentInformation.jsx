@@ -1,7 +1,6 @@
 import React from 'react';
 //import PropTypes from 'prop-types';
 import ImageCard from "../essentials/ImageCard";
-import { connect } from 'react-redux';
 
 /*
   Students must contain:
@@ -12,36 +11,25 @@ import { connect } from 'react-redux';
   - gpa -> GPA
 */
 
-
-const StudentInformation = ({ first_name, last_name, email, gpa, imageurl, buttonChange}) => {
-  console.log(gpa);
-  console.log(imageurl);
-  console.log(buttonChange);
+const StudentInformation = (props) => {
+  const { currentStudent, handleChange, handleSubmit, first_name,  } = props;
   return(
-    <div>
+    <div className="App">
 
-      <div className="UserDisplay">
-
-      <ImageCard imgsrc={imageurl}/>
-
-      <div className="UserData">
-        <div>
-          <h2>{first_name} {last_name}</h2>
+      <header className="App-header">
+        <form onSubmit={handleSubmit}>
+          <label>First Name:</label>
+          <input type="text" name="first_name" value={first_name} onChange={handleChange} required></input>
           <br></br>
-        </div>
-        <p>
-          Email: {email}
-        <br></br>
-        <br></br>
-          GPA: {gpa}
-        </p>
-        <button onClick={buttonChange}>Change Student</button>
-      </div>
-      </div>
+          <button>Display Player</button>
+        </form>
+      </header>
     </div>
   );
 };
 
+export default StudentInformation;
+/*
 const mapStateToProps = (state,ownprops) => {
   return { first_name: state.first_name,
            last_name: state.last_name,
@@ -52,6 +40,7 @@ const mapStateToProps = (state,ownprops) => {
 }
 
 export default connect(mapStateToProps)(StudentInformation);
+*/
 
 
 

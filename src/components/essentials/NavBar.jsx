@@ -13,7 +13,6 @@ class NavBar extends Component{
             <li><Link to='/Campuses'>Schools</Link></li>
           </ul>
         </div>
-
       </nav>
     );
   }

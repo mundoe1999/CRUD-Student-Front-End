@@ -1,34 +1,16 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-//import AppView from './AppView';
-
-//Import Redux store library and components
-import reducer from "./reducers";
-import { createStore } from "redux";
-
-//Importing Style
+import store from "./store";
 import './Style.css';
 
 //Importing pages
 import Home from './pages/Home';
 import StudentInfoPage from './pages/StudentInfoPage';
 import AllCampusPage from './pages/AllCampusPage';
-
-import StudentForm from './components/student/StudentForm'
-
-const student = {
-      first_name: 'Lorem',
-      last_name: 'ipsum',
-      email: 'something@other.com',
-      gpa: 2.3,
-      imageurl: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
-
-    };
-const store = createStore(reducer, student);
+import StudentForm from './components/student/StudentForm';
 
 class App extends Component {
-
   render() {
     const HomeComponent = () => (<Home />);
     const StudentInfoComponent = () => (<StudentInfoPage />);
@@ -51,6 +33,17 @@ export default App;
 
 
 /* ORIGINAL IMPLEMENTATION BELOW */
+/*
+const student = {
+      first_name: 'Lorem',
+      last_name: 'ipsum',
+      email: 'something@other.com',
+      gpa: 2.3,
+      imageurl: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
+    };
+*/
+
+
 
 /*
 class App extends Component{

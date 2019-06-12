@@ -26,18 +26,18 @@ const removeStudent = (student) =>{
 }
 
 // THUNK CREATORS
- export const editStudentThunk = () => (dispatch) => {
+ export const editStudentThunk = (id) => (dispatch) => {
   return axios
-    .get(`https://localhost:3001/testapi/students`)
+    .get(`https://localhost:3001/testapi/students/:id`)
     .then(res => res.data)
     .then(nbaPlayer => dispatch(editStudent(nbaPlayer)))
     .catch(err => console.log(err));
 }
- export const fetchStudentThunk = (lastName, firstName) => (dispatch) => {
+ export const fetchStudentThunk = (id) => (dispatch) => {
   return axios
-    .get(`https://nba-players.herokuapp.com/players-stats/${lastName}/${firstName}`)
+    .get(`https://localhost:3001/testapi/students/:id`)
     .then(res => res.data)
-    .then(nbaPlayer => dispatch(fetchStudent(nbaPlayer)))
+    .then(student => dispatch(fetchStudent(student)))
     .catch(err => console.log(err));
 }
 export const removeStudentThunk = () => (dispatch) => {

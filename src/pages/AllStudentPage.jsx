@@ -12,7 +12,7 @@ const AllStudentPage = () => (
     <NavBar />
     <div className="Content">
       <h1>Student<strong>Body</strong></h1>
-      < StudentList />
+      <StudentList />
     </div>
   </div>
 )

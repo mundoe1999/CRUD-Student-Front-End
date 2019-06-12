@@ -19,6 +19,30 @@
   color: #61dafb;
 }
 
+.Campus {
+  color: black;
+  justify-content: center;
+}
+
+.CampusImageCard{
+  display: block;
+  width: 800px;
+  height: 500px;
+  padding: 0.4em;
+  background-color: #fff;
+  box-shadow: 8px 8px rgba(0,0,0,0.3);
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+.Center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 .Content {
   margin-top: 2em;
   min-height: 100vh;
@@ -144,7 +168,7 @@ nav .flex-container > ul > li {
 
 }
 
-/*Table Componenets */
+/*Table Components */
 
 
 #StudentListing{

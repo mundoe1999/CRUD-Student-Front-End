@@ -17,12 +17,60 @@
       "campus": "Default University"
     },
     {
-      "fname": "Hatsune",
-      "lname": "Miku",
+      "fname": "Miku",
+      "lname": "Hatsune",
       "email": "hellolgbtcommunity@undertale.com",
       "gpa": "2.65",
       "imgurl": "https://ec.crypton.co.jp/img/special/vocaloid/img_MIKU_us.png",
       "campus": "Default University"
+    },
+    {
+      "fname": "Luigi",
+      "lname": "Mario",
+      "email": "letsago@mushroomail.com",
+      "gpa": "3.41",
+      "imgurl": "https://aff5fa4925746bf9c161-fb36f18ca122a30f6899af8eef8fa39b.ssl.cf5.rackcdn.com/images/Masthead_luigi.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png",
+      "campus": "Space Institute for Space"
+    },
+    {
+      "fname": "Toad",
+      "lname": "Bup",
+      "email": "wwooaahh@mushroomail.com",
+      "gpa": "2.97",
+      "imgurl": "https://www.pinclipart.com/picdir/middle/14-142412_hay-clipart-fodder-super-mario-toad-png-transparent.png",
+      "campus": "Space Institute for Space"
+    },
+    {
+      "fname": "Mario",
+      "lname": "Mario",
+      "email": "itsame@mushroomail.com",
+      "gpa": "3.34",
+      "imgurl": "https://purepng.com/public/uploads/large/purepng.com-mario-runningmariofictional-charactervideo-gamefranchisenintendodesigner-1701528634419bozsi.png",
+      "campus": "Space Institute for Space"
+    },
+    {
+      "fname": "Goku",
+      "lname": "Son",
+      "email": "kamehameha@dragonball.com",
+      "gpa": "2.80",
+      "imgurl": "https://library.kissclipart.com/20190121/stw/kissclipart-goku-render-smile-clipart-goku-vegeta-gohan-1246dce974a7b88d.png",
+      "campus": "Clown College"
+    },
+    {
+      "fname": "A",
+      "lname": "Horse",
+      "email": "neigh@horsemail.com",
+      "gpa": "3.59",
+      "imgurl": "https://freepngimg.com/thumb/horse/23491-7-horse-transparent-background.png",
+      "campus": "Clown College"
+    },
+    {
+      "fname": "Joseph",
+      "lname": "Wooloo",
+      "email": "fluff@pokemail.com",
+      "gpa": "4.00",
+      "imgurl": "https://vignette.wikia.nocookie.net/pokemon/images/2/2f/Wooloo.png/revision/latest?cb=20190608213946",
+      "campus": "Clown College"
     }
   ]
 }

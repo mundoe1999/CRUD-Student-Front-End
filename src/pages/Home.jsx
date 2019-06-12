@@ -1,17 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import NavBar from '../components/essentials/NavBar'
 
-class Home extends Component {
-  render(){
-    return (
-      <div className="App">
-        <NavBar />
-        <div className="App-header">
-          Collecting the Campus Information, just for you
-        </div>
+const Home = () => (
+  <div className="App">
+    <NavBar />
+    <div className="App-header">
+      Now this be a functional component 
     </div>
-    );
-  }
-}
+  </div>
+
+);
 
 export default Home;

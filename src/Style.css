@@ -144,3 +144,30 @@ nav .flex-container > ul > li {
 
 }
 
+/*Table Componenets */
+
+
+#StudentListing{
+  color: black;
+  margin: auto;
+  border-collapse: collapse;
+
+}
+
+#StudentListing td, #StudentListing th {
+  border: 1px solid #ddd;
+  padding: 0.5em;
+  margin: 0;
+}
+#StudentListing tr:nth-child(odd){background-color: #FFF;}
+#StudentListing tr:nth-child(even){background-color: #f2f2f2;}
+#StudentListing tr:hover {background-color: #ddd;}
+
+#StudentListing th{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+}

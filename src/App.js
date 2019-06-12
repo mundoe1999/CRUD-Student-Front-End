@@ -33,6 +33,7 @@ class App extends Component {
   componentDidMount(){
 
   }
+  
   render() {
     const HomeComponent = () => (<Home />);
     const StudentInfoComponent = () => (<StudentInfoPage />);
@@ -54,93 +55,3 @@ class App extends Component {
 
 export default App;
 
-
-
-/* ORIGINAL IMPLEMENTATION BELOW */
-
-/*
-class App extends Component{
-
-
-  render(){
-    const HomeComponent = () => (<Home />);
-    const StudentInfoComponent = () => (<StudentInfoPage />)
-    const AllCampusComponent = () => (<AllCampusPage />)
-    return(
-      <Router>
-        <Route exact path='/' render={HomeComponent}/>
-        <Route exact path='/StudentInfo' render={StudentInfoComponent}/>
-        <Route exact path='/Campuses' render={AllCampusComponent}/>
-      </Router>
-
-    );}
-
-
-};
-
-export default App;
-*/
-
-
-
-/* ALTERNATE IMPLEMENTATION FROM AJ */
-
-/*
-// Smart container;
-class AppContainer extends Component {
-  constructor() {
-    super();
-    this.state = {
-      firstName: "",
-      lastName: ""
-    }
-    this.blankState = this.state;
-  }
-
-  handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
-  }
-
-  handleSubmit = (event) => {
-    event.preventDefault();
-    this.props.fetchStudent(this.state.lastName, this.state.firstName);
-  }
-
-  handleReset = (event) => {
-    event.preventDefault();
-    this.props.removeStudent();
-    this.setState(this.blankState);
-  }
-
-  render() {
-    return (
-      <AppView
-        currentStudent={this.props.currentStudent}
-        handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}
-        handleReset={this.handleReset}
-        studentInfo={this.state}
-      />
-    );
-  }
-}
-
-// Map state to props;
-function mapState(state) {
-  return {
-    currentStudent: state.currentStudent
-  }
-}
-
-// Map dispatch to props;
-function mapDispatch(dispatch) {
-  return {
-    fetchStudent: (lastName, firstName) => dispatch(fetchStudentThunk(lastName, firstName)),
-    removeStudent: () => dispatch(removeStudentThunk())
-  }
-}
-
-// Export our store-connected component;
-export default connect(mapState, mapDispatch)(AppContainer);
-
-*/

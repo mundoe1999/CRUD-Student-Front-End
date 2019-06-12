@@ -28,6 +28,11 @@ const store = createStore(reducer, student);
 
 class App extends Component {
 
+  //Fetch the student and campus information HERE
+  //And Place it to the STORE
+  componentDidMount(){
+
+  }
   render() {
     const HomeComponent = () => (<Home />);
     const StudentInfoComponent = () => (<StudentInfoPage />);

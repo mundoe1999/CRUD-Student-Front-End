@@ -14,32 +14,61 @@ import {Link} from 'react-router-dom';
 
 class StudentList extends Component{
   constructor(){
-    var testdata = require('../../testfiles/teststudents.json')
+    var testdata = require('../../testfiles/teststudents.json');
+
     super();
     this.state = {
-      'length': Object.keys(testdata.students).length,
-      'studentlist': testdata
+      length: Object.keys(testdata.students).length,
+      studentlist: testdata['students']
     };
 
-    this.generate_table = this.generate_table.bind(this);
+   // this.generate_table = this.generate_table.bind(this);
   }
   render(){
+    //Get Students List
+    let students = this.state.studentlist || [];
+    console.log(students);
       // Button to generate table
       return (
         <div>
-          <body id="test">
-          </body>
+          <table id= "StudentListing">
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>GPA</th>
+              <th>Link</th>
+            </tr>
+          {console.log(Array.isArray(this.state.studentlist))}
+          {
+            this.state.studentlist.map((student) => {
+              return(
+                
+                <tr>
+                  <td>{student['fname']}</td>
+                  <td>{student['lname']}</td>
+                  <td>{student['email']}</td>
+                  <td>{student['gpa']}</td>
+                  <td><Link to='/StudentInfo'>Click</Link></td>
+                </tr>
+                
+              )
+            })
+          }
+          </table>
+
         </div>
         )
   }
 
   componentDidMount(){
-    this.generate_table();
+  //  this.generate_table();
   }
 
+/*
 generate_table() {
   // get the reference for the body
-  var body = document.getElementById("test");
+  var body = document.getElementById("StudentListing");
 
   // creates a <table> element and a <tbody> element
   var tbl = document.createElement("table");
@@ -93,7 +122,7 @@ generate_table() {
   // sets the border attribute of tbl to 2;
   tbl.setAttribute("border", "2");
 }
-
+*/
 
 }
 

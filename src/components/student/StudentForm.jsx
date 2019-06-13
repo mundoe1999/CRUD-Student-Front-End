@@ -17,6 +17,7 @@ class StudentForm extends Component{
       }
     this.blankState = this.state;
   }
+  
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   }

@@ -19,6 +19,30 @@
   color: #61dafb;
 }
 
+.Campus {
+  color: black;
+  justify-content: center;
+}
+
+.CampusImageCard{
+  display: block;
+  width: 800px;
+  height: 500px;
+  padding: 0.4em;
+  background-color: #fff;
+  box-shadow: 8px 8px rgba(0,0,0,0.3);
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+.Center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 .Content {
   margin-top: 2em;
   min-height: 100vh;
@@ -70,6 +94,15 @@
   background-color: #fff;
   box-shadow: 8px 8px rgba(0,0,0,0.3);
   margin-right: 2em;
+}
+
+.StudentList tr:nth-child(even){background-color: #f2f2f2;}
+.StudentList th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
 }
 
 nav {
@@ -135,3 +168,30 @@ nav .flex-container > ul > li {
 
 }
 
+/*Table Components */
+
+
+#StudentListing{
+  color: black;
+  margin: auto;
+  border-collapse: collapse;
+
+}
+
+#StudentListing td, #StudentListing th {
+  border: 1px solid #ddd;
+  padding: 0.5em;
+  margin: 0;
+}
+#StudentListing tr:nth-child(odd){background-color: #FFF;}
+#StudentListing tr:nth-child(even){background-color: #f2f2f2;}
+#StudentListing tr:hover {background-color: #ddd;}
+
+#StudentListing th{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+}

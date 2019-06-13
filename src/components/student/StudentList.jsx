@@ -22,7 +22,9 @@ class StudentList extends Component{
     };
 
     var newstudents = [];
-    if(this.props != undefined)
+    console.log(this.props)
+    console.log(this.props.hasOwnProperty("campus"))
+    if(this.props.hasOwnProperty("campus"))
     {
       for(var i = 0; i < this.state.studentlist.length; i++)
       {
@@ -31,9 +33,8 @@ class StudentList extends Component{
           newstudents.push(this.state.studentlist[i]);
         }
       }
+      this.state.studentlist = newstudents;
     }
-    this.state.studentlist = newstudents;
-
   }
 
   componentDidMount(){
@@ -44,7 +45,6 @@ class StudentList extends Component{
   render(){
     //Get Students List
     let students = this.state.studentlist || [];
-    console.log(students);
       // Button to generate table
       return (
         <div>
@@ -56,7 +56,7 @@ class StudentList extends Component{
               <th>GPA</th>
               <th>Link</th>
             </tr>
-          {console.log(Array.isArray(this.state.studentlist))}
+          
           {
             this.state.studentlist.map((student) => {
               return(

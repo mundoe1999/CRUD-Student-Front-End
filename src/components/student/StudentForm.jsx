@@ -1,45 +1,44 @@
 import React, {Component} from 'react';
-import { connect } from 'react-redux';
+import { editStudentThunk } from '../../thunks';
+import { removeStudentThunk } from '../../thunks';
+import { connect } from 'react-redux'; 
 
+//Importing pages
+import StudentInformation from './StudentInformation';
 
 class StudentForm extends Component{
-  constructor(props){
-    super(props);
+  constructor(){
+    super();
     this.state = {
-      t_first_name: this.props.first_name,
-      t_last_name: this.props.last_name,
-      t_email: this.props.email
-
-    };
-
-    //Binding fucntions
-    this.FirstNameChange = this.FirstNameChange.bind(this);
-    this.LastNameChange = this.LastNameChange.bind(this);
-    this.EmailChange = this.LastNameChange.bind(this);
-
-    //Button Instructions
-    this.LastNameChange = this.LastNameChange.bind(this);
+      first_name: "Lorem",
+      last_name: "ipsum",
+      email: "something@other.com",
+      gpa: 2.3,
+      }
+    this.blankState = this.state;
   }
-
+  
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  }
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.props.editStudent(this.state.first_name, this.state.last_name);
+  }
 
   render(){
     return(
-      <div>
-        <form>
-          <input type="text" value={this.state.t_first_name} onChange={this.FirstNameChange}/>
-          <br/>
-          <input type="text" value={this.state.t_last_name} onChange={this.LastNameChange}/>
-          <br/>
-          <input type="text" value={this.state.t_email} onChange={this.EmailChange}/>
-          <br/>
-          <button onClick={this.props.displayChange}>Cancel</button>
-          <button onClick={this.SubmitChange}>Update</button>
-          
-        </form>
-      </div>
+      <StudentInformation
+        currentStudent={this.props.currentStudent}
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+        first_name={this.state.first_name}
+        last_name={this.state.last_name}
+      />
       );
     }
 
+/*
 FirstNameChange(event){
   this.setState({
     t_first_name: event.target.value
@@ -58,15 +57,27 @@ EmailChange(event){
   });
 } //End EmailChange
 
+  render() {
+    return (
+      <AppView
+        currentPlayer={this.props.currentPlayer}
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+        handleReset={this.handleReset}
+        playerInfo={this.state}
+      />
+    );
+  }
+
 SubmitChange(event){
   //Call Reducer Methods to change the Store Value
 
   //Go back to Student Display
   this.props.displayChange(event);
 }
+
  
 //Button Functions
-
 
 changeToEdit(event){
   this.setState({
@@ -74,18 +85,19 @@ changeToEdit(event){
     t_first_name: this.state.first_name,
     t_last_name: this.state.last_name
   });
+}*/
 }
 
-
-
+function mapState(state){
+  return { 
+    currentStudent: state.currentStudent
+  }
+}
+// Map dispatch to props;
+function mapDispatch(dispatch) {
+  return {
+    editStudent: (first_name, last_name) => dispatch(editStudentThunk(first_name, last_name)),
+  }
 }
 
-const mapStateToProps = (state,ownprops) => {
-  return { first_name: state.first_name,
-           last_name: state.last_name,
-           email: state.email,
-           gpa: state.gpa,
-          displayChange: ownprops.displayChange};
-}
-
-export default connect(mapStateToProps)(StudentForm);
+export default connect(mapState, mapDispatch)(StudentForm);

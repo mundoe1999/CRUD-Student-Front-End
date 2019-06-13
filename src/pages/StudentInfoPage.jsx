@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
-
-//Importing essentials
 import NavBar from "../components/essentials/NavBar";
 
 //importing Specific Elements
 import StudentInformation from '../components/student/StudentInformation';
 import StudentForm from '../components/student/StudentForm';
-
-
 
 class StudentInfoPage extends Component {
   constructor(props){
@@ -17,14 +13,12 @@ class StudentInfoPage extends Component {
     }
     this.ChangeDisplay = this.ChangeDisplay.bind(this);
   }
-  
   //Button Control
   ChangeDisplay(event){
     this.setState({
       isHidden: !this.state.isHidden
     });
   }
-
   //Rendering Page
   render(){
     const isDisplayInfo = this.state.isHidden;

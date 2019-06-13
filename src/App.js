@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-//import AppView from './AppView';
-
-//Import Redux store library and components
-import reducer from "./reducers";
-import { createStore } from "redux";
-
-//Importing Style
+import store from "./store";
 import './Style.css';
 
 //Importing pages
@@ -15,6 +9,9 @@ import Home from './pages/Home';
 import StudentInfoPage from './pages/StudentInfoPage';
 import AllCampusPage from './pages/AllCampusPage';
 import AllStudentPage from './pages/AllStudentPage';
+
+class App extends Component {
+
 
 const student = {
       first_name: 'Lorem',
@@ -26,14 +23,6 @@ const student = {
     };
 const store = createStore(reducer, student);
 
-class App extends Component {
-
-  //Fetch the student and campus information HERE
-  //And Place it to the STORE
-  componentDidMount(){
-
-  }
-  
   render() {
     const HomeComponent = () => (<Home />);
     const StudentInfoComponent = () => (<StudentInfoPage />);
@@ -54,4 +43,3 @@ class App extends Component {
 }
 
 export default App;
-

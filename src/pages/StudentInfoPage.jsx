@@ -1,37 +1,33 @@
 import React, { Component } from 'react';
 import NavBar from "../components/essentials/NavBar";
-
+//import { match } from "react-router-dom";
 //importing Specific Elements
 import StudentInformation from '../components/student/StudentInformation';
-import StudentForm from '../components/student/StudentForm';
+import {withRouter} from 'react-router';
+
 
 class StudentInfoPage extends Component {
   constructor(props){
     super(props);
-    this.state = {
-      isHidden: true
-    }
-    this.ChangeDisplay = this.ChangeDisplay.bind(this);
+
+    
   }
-  //Button Control
-  ChangeDisplay(event){
-    this.setState({
-      isHidden: !this.state.isHidden
-    });
-  }
+
   //Rendering Page
   render(){
-    const isDisplayInfo = this.state.isHidden;
+    console.log("help");
+console.log(this.props);
     return (
       <div className="App">
         <NavBar />
         <div className="Content">
           <h1>Student<strong>Profile</strong></h1>
-          {isDisplayInfo ? <StudentInformation buttonChange={this.ChangeDisplay.bind(this)} /> : <StudentForm displayChange={this.ChangeDisplay.bind(this)}/>}
+          <StudentInformation userId ={this.props.match.params.userId} /> 
         </div>
     </div>
     );
   }
 }
 
-export default StudentInfoPage;
+//export default StudentInfoPage;
+export default withRouter(StudentInfoPage);

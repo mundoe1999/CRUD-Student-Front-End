@@ -28,14 +28,14 @@ const removeCampus = (campus) =>{
 // THUNK CREATORS
  export const editCampusThunk = (id) => (dispatch) => {
   return axios
-    .get(`https://localhost:3001/testapi/campuses/:id`)
+    .get(`/api/campuses`)
     .then(res => res.data)
     .then(campus => dispatch(editCampus(campus)))
     .catch(err => console.log(err));
 }
  export const fetchCampusThunk = (id) => (dispatch) => {
   return axios
-    .get(`https://localhost:3001/testapi/campuses:id`)
+    .get(`/api/campuses/${id}`)
     .then(res => res.data)
     .then(campus => dispatch(fetchCampus(campus)))
     .catch(err => console.log(err));

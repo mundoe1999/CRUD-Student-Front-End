@@ -14,7 +14,7 @@ const fetchAllCampuses = (campuses) =>{
 // THUNK CREATORS
  export const fetchAllCampusesThunk = () => (dispatch) => {
   return axios
-    .get(`https://localhost:3001/testapi/campuses`)
+    .get(`/api/campuses`)
     .then(res => res.data)
     .then(campuses => dispatch(fetchAllCampuses(campuses)))
     .catch(err => console.log(err));

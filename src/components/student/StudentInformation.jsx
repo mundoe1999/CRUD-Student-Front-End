@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 //import PropTypes from 'prop-types';
 import ImageCard from "../essentials/ImageCard";
+import { fetchStudentThunk } from '../../thunks';
+import { editStudentThunk } from '../../thunks';
+import { removeStudentThunk } from '../../thunks';
+import { connect } from 'react-redux'; 
+
 
 /*
   Students must contain:
@@ -11,24 +16,113 @@ import ImageCard from "../essentials/ImageCard";
   - gpa -> GPA
 */
 
+class StudentInformation extends Component{
+  constructor(){
+    super();
+    this.state = {
+      firstName: "Lorem",
+      lastName: "ipsum",
+      email: "something@other.com",
+      gpa: 2.3,
+      isHidden: true
+      }
+    this.blankState = this.state;
+    this.ChangeDisplay = this.ChangeDisplay.bind(this);
+  }
+  
+  componentDidMount(){
+    this.props.fetchStudent(this.props.studentId);
+  }
+
+  //Button Control
+  ChangeDisplay(event){
+    console.log("Change!");
+    this.setState({
+      isHidden: !this.state.isHidden
+    });
+  }
+  render(){
+    let isFormHidden = this.state.isHidden;
+    if(isFormHidden){
+      return(
+        <div className="UserDisplay">
+
+            <ImageCard imgsrc={this.props.currentStudent.imageURL}/>
+
+            <div className="UserData">
+              <p>First Name: {this.props.currentStudent.firstName}</p>
+              <p>Last Name: {this.props.currentStudent.lastName}</p>
+              <p>Email: {this.props.currentStudent.email}</p>
+              <p>GPA: {this.props.currentStudent.gpa}</p>
+              <hr/>
+              <button onClick={this.ChangeDisplay}>Edit Information</button>
+            </div>
+
+          </div>
+        );
+    } else{
+      return(
+        <div>
+          
+        
+           <button onClick={this.ChangeDisplay}>Cancel</button>
+        </div>
+      )
+    }
+
+  }
+}
+
+
+function mapState(state, ownprops){
+  return { 
+    studentId: ownprops.userId,
+    currentStudent: state.currentStudent
+  }
+}
+// Map dispatch to props;
+function mapDispatch(dispatch) {
+  return {
+    fetchStudent: (id) => dispatch(fetchStudentThunk(id)),
+
+  }
+}
+
+export default connect(mapState, mapDispatch)(StudentInformation);
+
+
+
+
+/*///////////////////////////////
 const StudentInformation = (props) => {
   const { currentStudent, handleChange, handleSubmit, first_name,  } = props;
   return(
     <div className="App">
-
       <header className="App-header">
-        <form onSubmit={handleSubmit}>
-          <label>First Name:</label>
-          <input type="text" name="first_name" value={first_name} onChange={handleChange} required></input>
-          <br></br>
-          <button>Display Player</button>
-        </form>
+        <ImageCard imgsrc/>
+        <div>
+          {currentStudent[firstName]}
+        </div>
       </header>
     </div>
   );
 };
 
 export default StudentInformation;
+*///////////////////////////////////
+
+
+
+/*
+        <form onSubmit={handleSubmit}>
+          <label>First Name:</label>
+          <input type="text" name="first_name" value={first_name} onChange={handleChange} required></input>
+          <br></br>
+          <button>Display Player</button>
+        </form>
+*/
+
+
 /*
 const mapStateToProps = (state,ownprops) => {
   return { first_name: state.first_name,

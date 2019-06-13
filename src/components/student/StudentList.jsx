@@ -7,25 +7,39 @@ import {Link} from 'react-router-dom';
 
 /*
   Props must contain:
-  - length -> Number of list elements
+  - campus -> Exact name of campus
   - studentlist  -> Array of student objects
 */
 
 
 class StudentList extends Component{
-  constructor(){
+  constructor(props){
     var testdata = require('../../testfiles/teststudents.json');
 
-    super();
+    super(props);
     this.state = {
       studentlist: testdata['students']
     };
+
+    var newstudents = [];
+    if(this.props != undefined)
+    {
+      for(var i = 0; i < this.state.studentlist.length; i++)
+      {
+        if(this.state.studentlist[i].campus === this.props.campus)
+        {
+          newstudents.push(this.state.studentlist[i]);
+        }
+      }
+    }
+    this.state.studentlist = newstudents;
 
   }
 
   componentDidMount(){
     //  Should Get the student list;
-    }
+
+  }
 
   render(){
     //Get Students List

@@ -4,24 +4,26 @@ import axios from 'axios';
 const FETCH_ALL_STUDENTS = "FETCH_ALL_STUDENTS";
 
 // ACTION CEATORS
-const fetchAllStudents = (students) =>{
+const fetchAllStudents = (allStudents) =>{
     return{
         type: FETCH_ALL_STUDENTS,
-        payload: students
+        payload: allStudents
     }
 }
 
 // THUNK CREATORS
  export const fetchAllStudentsThunk = () => (dispatch) => {
   return axios
-    .get(`https://localhost:3001/testapi/students`)
+    .get(`/api/students`)
+    .then(res => {console.log(res); return res; })
     .then(res => res.data)
-    .then(students => dispatch(fetchAllStudents(students)))
+    .then(allStudents => dispatch(fetchAllStudents(allStudents)))
     .catch(err => console.log(err));
 }
 
+
 // REDUCER
-export default (state = {}, action) =>{
+export default (state = [], action) =>{
     switch (action.type){
         case FETCH_ALL_STUDENTS:
             return action.payload;

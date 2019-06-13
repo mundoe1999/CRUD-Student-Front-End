@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import store from "./store";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 import './Style.css';
+
 
 //Importing pages
 import Home from './pages/Home';
@@ -20,16 +20,17 @@ class App extends Component {
     const AllStudentComponent = () => (<AllStudentPage />);
     const CampusInfoPageComponent = () => (<CampusInfoPage/>);
     return( 
-      <Provider store={store}>
+
         <Router>
+          <Switch>
           <Route exact path='/' render={HomeComponent}/>
-          <Route exact path='/StudentInfo' render={StudentInfoComponent}/>
+          <Route path='/Students/:userId' render={StudentInfoComponent}/>
+          <Route path='/Campuses/:userId' render={CampusInfoPageComponent} />
           <Route exact path='/Campuses' render={AllCampusComponent}/>
           <Route exact path='/Students' render={AllStudentComponent}/>
-          <Route path='/CampusInfo' render={CampusInfoPageComponent}/>
+          </Switch>
         </Router>
 
-      </Provider>
     )
   }
 }

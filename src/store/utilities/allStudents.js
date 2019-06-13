@@ -15,12 +15,10 @@ const fetchAllStudents = (allStudents) =>{
  export const fetchAllStudentsThunk = () => (dispatch) => {
   return axios
     .get(`/api/students`)
-    .then(res => {console.log(res); return res; })
     .then(res => res.data)
     .then(allStudents => dispatch(fetchAllStudents(allStudents)))
     .catch(err => console.log(err));
 }
-
 
 // REDUCER
 export default (state = [], action) =>{

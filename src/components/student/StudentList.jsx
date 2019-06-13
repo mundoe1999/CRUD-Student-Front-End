@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
-import { fetchAllStudentsThunk } from "../../thunks"
+import { fetchAllStudentsThunk, addStudentThunk } from "../../thunks"
 
 // import ImageCard from '../essentials/ImageCard'
 
@@ -70,6 +70,7 @@ class StudentList extends Component{
                   <td>{student['email']}</td>
                   <td>{student['gpa']}</td>
                   <td><Link to={`/Students/${student["id"]}`}>Click</Link></td>
+
                 </tr>
                 
               )
@@ -92,6 +93,7 @@ function mapState(state){
 function mapDispatch(dispatch) {
   return {
     fetchAllStudents: () => dispatch(fetchAllStudentsThunk()),
+
   }
 }
 

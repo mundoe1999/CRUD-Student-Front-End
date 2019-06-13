@@ -7,20 +7,48 @@ import { fetchAllStudentsThunk } from "../../thunks"
 
 /*
   Props must contain:
-  - length -> Number of list elements
+  - campus -> Exact name of campus
   - studentlist  -> Array of student objects
 */
 
 
 class StudentList extends Component{
 
+
   componentDidMount(){
     this.props.fetchAllStudents();
+
+        /*
+  constructor(props){
+    var testdata = require('../../testfiles/teststudents.json');
+
+    super(props);
+    this.state = {
+      studentlist: testdata['students']
+    };
+
+    var newstudents = [];
+    console.log(this.props)
+    console.log(this.props.hasOwnProperty("campus"))
+    if(this.props.hasOwnProperty("campus"))
+    {
+      for(var i = 0; i < this.state.studentlist.length; i++)
+      {
+        if(this.state.studentlist[i].campus === this.props.campus)
+        {
+          newstudents.push(this.state.studentlist[i]);
+        }
+      }
+      this.state.studentlist = newstudents;
+    }
+  }
+*/
+
+
   }
 
   render(){
     //Get Students List
-    
       // Button to generate table
       return (
         <div>

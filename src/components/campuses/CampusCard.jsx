@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 
 
 import CampusImageCard from '../essentials/CampusImageCard'
@@ -12,9 +12,20 @@ import CampusImageCard from '../essentials/CampusImageCard'
 
 
 class CampusCard extends Component{
+  constructor(props)
+  {
+    super(props);
+    console.log(this.props.location);
+    this.state={
+      isHidden: false
+    }
+  }
+
   componentDidMount(){
     //  Should Get the student list;
-    }
+    if(this.props.location.pathname.includes("CampusInfo"))
+      document.getElementById("link").style.display = 'none';
+  }
 
   render(){
       // Button to generate table
@@ -27,10 +38,12 @@ class CampusCard extends Component{
           <b>Description:</b> {this.props.data['description']}
           <br/>
           <b>Address:</b> {this.props.data['address']}
+          <br/>
+          <Link id="link" to={`CampusInfo/${this.props.num}`}><b>Link</b></Link>
           <hr/>
         </div>
         )
   }
 }
 
-export default CampusCard;
+export default withRouter(CampusCard);

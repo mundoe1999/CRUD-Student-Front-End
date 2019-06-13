@@ -17,9 +17,9 @@ const AllCampusPage = () => (
       <h1>Campus<strong>Roster</strong></h1>
       <div className="flex-container">
       {
-        campuses.map((campus) => {
+        campuses.map((campus, index) => {
           return(
-            <CampusCard data={campus}/>
+            <CampusCard data={campus} num={index}/>
             )} 
           )}
       </div>

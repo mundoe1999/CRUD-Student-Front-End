@@ -21,7 +21,6 @@ const fetchAllStudents = (allStudents) =>{
     .catch(err => console.log(err));
 }
 
-
 // REDUCER
 export default (state = [], action) =>{
     switch (action.type){

@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
 import { fetchCampusThunk, editCampusThunk, removeCampusThunk } from '../../thunks';
 import { connect } from 'react-redux'; 
-
-//import PropTypes from 'prop-types';
 import CampusImageCard from "../essentials/CampusImageCard";
-
-
-
-
 
 class CampusInformation extends Component{
   constructor(props){
@@ -20,7 +14,6 @@ class CampusInformation extends Component{
       imageURL: '',
       isHidden: true
       }
-
 
     this.blankState = this.state;
 
@@ -45,7 +38,6 @@ class CampusInformation extends Component{
 
   //Button Control
   ChangeDisplay(event){
-    console.log("Change!");
     this.setState({
       isHidden: !this.state.isHidden
     });
@@ -79,12 +71,10 @@ class CampusInformation extends Component{
     })
   }
 
-  
   deleteCamp(event){
     this.props.deleteCampus(this.props.campusId);
     window.location.href = "http://localhost:3000/Campuses";
   }
-
 
   handleSubmit(event){
     let newCampus = {
@@ -95,8 +85,6 @@ class CampusInformation extends Component{
       
     };
 
-    console.log(newCampus);
-    console.log(this.props.campusId);
     alert('Form has been submitted');
 
     this.props.editCampus(this.props.campusId, newCampus);
@@ -141,9 +129,6 @@ class CampusInformation extends Component{
             Image *
             <input type="text" value={this.state.imageURL} onChange = {this.changeImage} />
             <br/>
-            
-
-            
             <input type="submit"/>
           </form>
           <button onClick={this.ChangeDisplay}>Cancel</button>
@@ -154,7 +139,6 @@ class CampusInformation extends Component{
 
   }
 }
-
 
 function mapState(state, ownprops){
   return { 

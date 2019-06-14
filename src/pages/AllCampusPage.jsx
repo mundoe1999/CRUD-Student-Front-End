@@ -1,15 +1,6 @@
 import React from 'react';
-/*
-import { connect } from 'react-redux';
-import {Link} from 'react-router-dom';
-import { fetchAllCampusesThunk } from "../../thunks";
-*/
-//Importing essentials
-import NavBar from '../components/essentials/NavBar'
-
-//importing Specific Elements
-import CampusList from '../components/campus/CampusList'
-
+import NavBar from '../components/essentials/NavBar';
+import CampusList from '../components/campus/CampusList';
 
 const AllCampusPage = () => (
   <div className="App">

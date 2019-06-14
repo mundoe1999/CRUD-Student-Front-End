@@ -1,18 +1,7 @@
 import React, { Component } from 'react';
-//import PropTypes from 'prop-types';
 import ImageCard from "../essentials/ImageCard";
 import { fetchStudentThunk, editStudentThunk, removeStudentThunk } from '../../thunks';
 import { connect } from 'react-redux'; 
-
-
-/*
-  Students must contain:
-  - firstName -> First Name
-  - lastName  -> Last Name
-  - email -> In the format of something@other.com
-  - imageurl -> the url of said image
-  - gpa -> GPA
-*/
 
 class StudentInformation extends Component{
   constructor(props){
@@ -44,7 +33,6 @@ class StudentInformation extends Component{
 
   //Button Control
   ChangeDisplay(event){
-    console.log("Change!");
     this.setState({
       isHidden: !this.state.isHidden
     });
@@ -55,7 +43,6 @@ class StudentInformation extends Component{
     this.setState({
       firstName: event.target.value
     });
-    console.log(this.state.firstName);
   }
 
   ChangeLastName(event){
@@ -81,7 +68,6 @@ class StudentInformation extends Component{
     window.location.href = "http://localhost:3000/Students";
   }
 
-
   handleSubmit(event){
     alert('Form has been submitted');
 
@@ -91,7 +77,6 @@ class StudentInformation extends Component{
       gpa: this.state.gpa,
       email: this.state.email
     };
-    console.log(newStudent);
 
     this.props.editStudent(this.props.studentId, newStudent);
     this.props.fetchStudent(this.props.studentId);

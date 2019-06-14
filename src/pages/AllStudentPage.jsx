@@ -1,11 +1,6 @@
 import React from 'react';
-
-//Importing essentials
 import NavBar from "../components/essentials/NavBar";
-
-//importing Specific Elements
 import StudentList from '../components/student/StudentList';
-
 
 const AllStudentPage = () => (
   <div className="App">
@@ -17,6 +12,4 @@ const AllStudentPage = () => (
   </div>
 )
   
-
-
 export default AllStudentPage;

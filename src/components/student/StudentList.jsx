@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
-import { fetchAllStudentsThunk } from "../../thunks"
+import { fetchAllStudentsThunk, addStudentThunk } from "../../thunks"
 
 // import ImageCard from '../essentials/ImageCard'
 
@@ -13,45 +13,89 @@ import { fetchAllStudentsThunk } from "../../thunks"
 
 
 class StudentList extends Component{
-
-
-  componentDidMount(){
-    this.props.fetchAllStudents();
-
-        /*
   constructor(props){
-    var testdata = require('../../testfiles/teststudents.json');
-
     super(props);
     this.state = {
-      studentlist: testdata['students']
-    };
-
-    var newstudents = [];
-    console.log(this.props)
-    console.log(this.props.hasOwnProperty("campus"))
-    if(this.props.hasOwnProperty("campus"))
-    {
-      for(var i = 0; i < this.state.studentlist.length; i++)
-      {
-        if(this.state.studentlist[i].campus === this.props.campus)
-        {
-          newstudents.push(this.state.studentlist[i]);
-        }
+      firstName: '',
+      lastName: '',
+      email: '',
+      gpa: '',
+      isHidden: true
       }
-      this.state.studentlist = newstudents;
-    }
+
+      this.ChangeDisplay = this.ChangeDisplay.bind(this);
+    //Form Bind
+    this.ChangeFirstName = this.ChangeFirstName.bind(this);
+    this.ChangeLastName = this.ChangeLastName.bind(this);
+    this.ChangeEmail = this.ChangeEmail.bind(this);
+    this.ChangeGPA = this.ChangeGPA.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-*/
+  componentDidMount(){
+    this.props.fetchAllStudents();
+  }
+
+  ChangeDisplay(event){
+    console.log("Change!");
+    this.setState({
+      isHidden: !this.state.isHidden
+    });
+  }
+
+  ChangeFirstName(event){
+    this.setState({
+      firstName: event.target.value
+    });
+    console.log(this.state.firstName);
+  }
 
 
+  ChangeLastName(event){
+    this.setState({
+      lastName: event.target.value
+    });
   }
+
+  ChangeEmail(event){
+    this.setState({
+      email: event.target.value
+    });
+  }
+
+  ChangeGPA(event){
+    this.setState({
+      gpa: event.target.value
+    });
+  }
+
+  handleSubmit(event){
+  
+    let newStudent = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      gpa: this.state.gpa,
+      email: this.state.email,
+      createdAt: "1"
+    };
+    console.log(newStudent);
+
+
+    this.props.addSingularStudent(newStudent);
+    this.props.fetchAllStudents();
+    this.ChangeDisplay();
+    event.preventDefault();
+    
+  }
+
+
 
   render(){
-    //Get Students List
-      // Button to generate table
+
+    let isFormHidden = this.state.isHidden;
+    if(isFormHidden){
       return (
         <div>
+          <button onClick={this.ChangeDisplay}>Add Student</button>
           <table id= "StudentListing">
             <tr>
               <th>First Name</th>
@@ -79,6 +123,35 @@ class StudentList extends Component{
 
         </div>
         )
+    } else{
+      return (
+        <div>
+          
+        <form onSubmit={this.handleSubmit}>
+          First Name:
+          <input type="text" value={this.state.firstName} onChange = {this.ChangeFirstName} required/>
+          <br/>
+
+          LastName: 
+          <input type="text" value={this.state.lastName} onChange = {this.ChangeLastName} required/>
+          <br/>
+
+          Email:
+          <input type="email" value={this.state.email} onChange = {this.ChangeEmail} required />
+          <br/>
+
+          GPA: 
+          <input type="number" value={this.state.gpa} step='0.01' onChange = {this.ChangeGPA} min = '0' max = '4'required />
+          <br/>
+
+          <input type="submit" value="Add Student"/>
+        </form>
+
+        <button onClick={this.ChangeDisplay}>Cancel</button>
+      </div>
+      )
+    }
+
   }
 }
 
@@ -92,6 +165,7 @@ function mapState(state){
 function mapDispatch(dispatch) {
   return {
     fetchAllStudents: () => dispatch(fetchAllStudentsThunk()),
+    addSingularStudent: (initial) => dispatch(addStudentThunk(initial))
   }
 }
 

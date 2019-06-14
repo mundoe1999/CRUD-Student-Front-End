@@ -7,7 +7,7 @@ import NavBar from "../components/essentials/NavBar";
 import StudentList from '../components/student/StudentList';
 
 
-const AllStudentPage = (props) => ( console.log(props),
+const AllStudentPage = () => (
   <div className="App">
     <NavBar />
     <div className="Content">

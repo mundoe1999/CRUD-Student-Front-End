@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 //import PropTypes from 'prop-types';
 import ImageCard from "../essentials/ImageCard";
-import { fetchStudentThunk } from '../../thunks';
-import { editStudentThunk } from '../../thunks';
-import { removeStudentThunk } from '../../thunks';
+import { fetchStudentThunk, editStudentThunk, removeStudentThunk } from '../../thunks';
 import { connect } from 'react-redux'; 
 
 
@@ -17,17 +15,27 @@ import { connect } from 'react-redux';
 */
 
 class StudentInformation extends Component{
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
+
     this.state = {
-      firstName: "Lorem",
-      lastName: "ipsum",
-      email: "something@other.com",
-      gpa: 2.3,
+      firstName: this.props.currentStudent.firstName,
+      lastName: this.props.currentStudent.lastName,
+      email: this.props.currentStudent.email,
+      gpa: this.props.currentStudent.gpa,
       isHidden: true
       }
+
     this.blankState = this.state;
     this.ChangeDisplay = this.ChangeDisplay.bind(this);
+    this.deleteStudent = this.deleteStudent.bind(this);
+
+    //Form Bind
+    this.ChangeFirstName = this.ChangeFirstName.bind(this);
+    this.ChangeLastName = this.ChangeLastName.bind(this);
+    this.ChangeEmail = this.ChangeEmail.bind(this);
+    this.ChangeGPA = this.ChangeGPA.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   
   componentDidMount(){
@@ -41,6 +49,57 @@ class StudentInformation extends Component{
       isHidden: !this.state.isHidden
     });
   }
+
+
+  ChangeFirstName(event){
+    this.setState({
+      firstName: event.target.value
+    });
+    console.log(this.state.firstName);
+  }
+
+  ChangeLastName(event){
+    this.setState({
+      lastName: event.target.value
+    });
+  }
+
+  ChangeEmail(event){
+    this.setState({
+      email: event.target.value
+    });
+  }
+
+  ChangeGPA(event){
+    this.setState({
+      gpa: event.target.value
+    });
+  }
+  
+  deleteStudent(event){
+    this.props.deleteStudent(this.props.studentId);
+    window.location.href = "http://localhost:3000/Students";
+  }
+
+
+  handleSubmit(event){
+    alert('Form has been submitted');
+
+    let newStudent = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      gpa: this.state.gpa,
+      email: this.state.email
+    };
+    console.log(newStudent);
+
+    this.props.editStudent(this.props.studentId, newStudent);
+    this.props.fetchStudent(this.props.studentId);
+    this.ChangeDisplay();
+    event.preventDefault();
+    
+  }
+
   render(){
     let isFormHidden = this.state.isHidden;
     if(isFormHidden){
@@ -50,6 +109,7 @@ class StudentInformation extends Component{
             <ImageCard imgsrc={this.props.currentStudent.imageURL}/>
 
             <div className="UserData">
+              
               <p>First Name: {this.props.currentStudent.firstName}</p>
               <p>Last Name: {this.props.currentStudent.lastName}</p>
               <p>Email: {this.props.currentStudent.email}</p>
@@ -63,9 +123,24 @@ class StudentInformation extends Component{
     } else{
       return(
         <div>
-          
-        
-           <button onClick={this.ChangeDisplay}>Cancel</button>
+          <form onSubmit={this.handleSubmit}>
+          First Name:
+            <input type="text" value={this.state.firstName} onChange = {this.ChangeFirstName} required/>
+            <br/>
+            LastName: 
+            <input type="text" value={this.state.lastName} onChange = {this.ChangeLastName} required/>
+            <br/>
+            Email:
+            <input type="email" value={this.state.email} onChange = {this.ChangeEmail} required />
+            <br/>
+            GPA: 
+            <input type="number" value={this.state.gpa} step='0.01' onChange = {this.ChangeGPA} min = '0' max = '4'required />
+            <br/>
+            <input type="submit"/>
+
+          </form>
+          <button onClick={this.ChangeDisplay}>Cancel</button>
+          <button onClick={this.deleteStudent}>Delete</button>
         </div>
       )
     }
@@ -84,166 +159,11 @@ function mapState(state, ownprops){
 function mapDispatch(dispatch) {
   return {
     fetchStudent: (id) => dispatch(fetchStudentThunk(id)),
-
+    editStudent: (id, updates) => dispatch(editStudentThunk(id, updates)),
+    deleteStudent: (id) => dispatch(removeStudentThunk(id))
   }
 }
 
 export default connect(mapState, mapDispatch)(StudentInformation);
 
 
-
-
-/*///////////////////////////////
-const StudentInformation = (props) => {
-  const { currentStudent, handleChange, handleSubmit, first_name,  } = props;
-  return(
-    <div className="App">
-      <header className="App-header">
-        <ImageCard imgsrc/>
-        <div>
-          {currentStudent[firstName]}
-        </div>
-      </header>
-    </div>
-  );
-};
-
-export default StudentInformation;
-*///////////////////////////////////
-
-
-
-/*
-        <form onSubmit={handleSubmit}>
-          <label>First Name:</label>
-          <input type="text" name="first_name" value={first_name} onChange={handleChange} required></input>
-          <br></br>
-          <button>Display Player</button>
-        </form>
-*/
-
-
-/*
-const mapStateToProps = (state,ownprops) => {
-  return { first_name: state.first_name,
-           last_name: state.last_name,
-           email: state.email,
-           gpa: state.gpa,
-           imageurl: state.imageurl,
-          buttonChange: ownprops.buttonChange};
-}
-
-export default connect(mapStateToProps)(StudentInformation);
-*/
-
-
-
-/* ORIGINAL IMPLEMENTATION BELOW */
-
-/*
-class StudentForm extends Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      first_name: 'Lorem',
-      last_name: 'ipsum',
-      email: 'something@other.com',
-      imageurl: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
-      gpa: 2.3,
-      t_first_name: '',
-      t_last_name: '',
-      isHidden: false
-    };
-
-    //Binding fucntions
-
-    this.FirstNameChange = this.FirstNameChange.bind(this);
-    this.LastNameChange = this.LastNameChange.bind(this);
-
-    //Button Instructions
-    this.changeToEdit = this.changeToEdit.bind(this);
-    this.SubmitButton = this.SubmitButton.bind(this);
-  }
-  render(){
-    if(!this.state.isHidden){
-
-      // Displaying the Student Information
-      return (
-        <div className="UserDisplay">
-
-          <ImageCard imgsrc={this.state.imageurl}/>
-
-          <div className="UserData">
-            <div>
-              <h2>{this.state.first_name} {this.state.last_name}</h2>
-              <br></br>
-            </div>
-            <p>
-              Email: {this.state.email}
-            <br></br>
-            <br></br>
-              GPA: {this.state.gpa}
-            </p>
-            <hr/>
-            <button onClick={this.changeToEdit}>Edit Information</button>
-          </div>
-
-        </div>
-      );
-    }
-    //Display for Edit information
-
-    else{
-      return(
-        <div>
-
-          Enter new First name: 
-          <input type='text' value={this.state.t_first_name} onChange={this.FirstNameChange}/>
-          <br/>
-          Enter new Last Name: 
-          <input type='text' value={this.state.t_last_name} onChange={this.LastNameChange}/>
-          <br />
-          <button className="cancelButton" onClick={this.changeToEdit}>Cancel</button>
-          <button className="submitButton" onClick={this.SubmitButton}>Submit</button>
-
-        </div>);
-    }
-}
-FirstNameChange(event){
-  this.setState({
-    t_first_name: event.target.value
-  });
-} //End FirstNameChange
-
-LastNameChange(event){
-  this.setState({
-    t_last_name: event.target.value
-  });
-} //End LastNameChange
-
- 
-//Button Functions
-
-
-changeToEdit(event){
-  this.setState({
-    isHidden: !this.state.isHidden,
-    t_first_name: this.state.first_name,
-    t_last_name: this.state.last_name
-  });
-}
-
-SubmitButton(event){
-  //Setting with the new values
-  this.setState({
-    first_name: this.state.t_first_name,
-    last_name: this.state.t_last_name,
-    isHidden: !this.state.isHidden
-  });
-} //End SubmitButton
-
-
-}
-
-export default StudentForm;
-*/

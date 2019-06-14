@@ -2,6 +2,7 @@ import axios from 'axios';
 
 // ACTION TYPES
 const FETCH_STUDENT = "FETCH_STUDENT";
+const ADD_STUDENT = "ADD_STUDENT";
 const EDIT_STUDENT = "EDIT_STUDENT";
 const REMOVE_STUDENT = "REMOVE_STUDENT";
 
@@ -12,10 +13,16 @@ const fetchStudent = (student) =>{
         payload: student
     }
 }
-const editStudent = (student) =>{
+const addStudent = (student) =>{
+    return{
+        type: ADD_STUDENT,
+        payload: student
+    }
+}
+const editStudent = (student, changes) =>{
     return{
         type: EDIT_STUDENT,
-        payload: student
+        payload: student, changes
     }
 }
 const removeStudent = (student) =>{
@@ -33,30 +40,36 @@ const removeStudent = (student) =>{
     .then(student => dispatch(fetchStudent(student)))
     .catch(err => console.log(err));
 }
-export const editStudentThunk = (id) => (dispatch) => {
+export const addStudentThunk = (initial) => (dispatch) => {
   return axios
-    .post(`/api/students`,{
-        firstName: "Test_edit_fname",
-        lastName: "Test_edit_lname",
-        gpa: 3.5,
-        imageURL: '',
-        email: '',
-        campusId: 1
-    })
+    .post('/api/students/',initial)
     .then(res => res.data)
-    .then(student => dispatch(editStudent(student)))
+    .then(student => dispatch(addStudent(student)))
     .catch(err => console.log(err));
 }
-export const removeStudentThunk = () => (dispatch) => {
-    return dispatch(removeStudent());
+export const editStudentThunk = (id, changes) => (dispatch) => {
+  return axios
+    .put(`/api/students/${id}`,changes)
+    .then(res => (res.data))
+    .then(student => dispatch(editStudent(student, changes)))
+    .catch(err => console.log(err));
+}
+export const removeStudentThunk = (id) => (dispatch) => {
+    return axios
+    .delete(`/api/students/${id}`)
+    .then(res => res.data)
+    .then(student => dispatch(removeStudent(student)))
+    .catch(err => console.log(err));
 }
 
 // REDUCER
 export default (state = {}, action) =>{
     switch (action.type){
-        case EDIT_STUDENT:
-            return action.payload;
         case FETCH_STUDENT:
+            return action.payload;
+        case ADD_STUDENT:
+            return action.payload;
+        case EDIT_STUDENT:
             return action.payload;
         case REMOVE_STUDENT:
             return {};

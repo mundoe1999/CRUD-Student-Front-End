@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const ImageCard = props => (
-  <img className="ImageCard" src={props.imgsrc} alt="image of a student"/>
+  <img className="ImageCard" src={props.imgsrc} alt="A simple and humble student"/>
 );
 
 export default ImageCard;

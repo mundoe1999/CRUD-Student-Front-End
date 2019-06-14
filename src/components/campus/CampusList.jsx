@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import { fetchAllCampusesThunk, addCampusThunk } from '../../thunks';
 import { connect } from 'react-redux';
-
 import CampusCard from './CampusCard';
-
 
 class CampusList extends Component {
   constructor(props){
@@ -16,7 +14,6 @@ class CampusList extends Component {
       imageURL: 'tes',
       isHidden: true
       }
-
 
     this.blankState = this.state;
 
@@ -40,7 +37,6 @@ class CampusList extends Component {
 
   //Button Control
   ChangeDisplay(event){
-    console.log("Change!");
     this.setState({
       isHidden: !this.state.isHidden
     });
@@ -54,33 +50,25 @@ class CampusList extends Component {
     this.setState({
       name: event.target.value
     });
-    console.log(this.state.name);
   }
 
   changeAddress(event){
     this.setState({
       address: event.target.value
     });
-    console.log(this.state.address);
   }
 
   changeDescription(event){
     this.setState({
       description: event.target.value
     });
-    console.log(this.state.description);
   }
 
   changeImage(event){
     this.setState({
       imageURL: event.target.value
     });
-    console.log(this.state.imageURL);
-
   }
-
-  
-
 
   handleSubmit(event){
     let newCampus = {
@@ -89,19 +77,15 @@ class CampusList extends Component {
       description: "something",
       imageUrl: this.state.imageURL,
       createdAt: "1"
-      
     };
 
-    console.log(newCampus);
     alert('Form has been submitted');
 
     this.props.addSingularCampus(newCampus);
     this.props.fetchCampuses();
     this.ChangeDisplay();
     event.preventDefault();
-    
   }
-
   
   render(){
     let isFormHidden = this.state.isHidden;
@@ -136,10 +120,7 @@ class CampusList extends Component {
           <br/>
           Image *
           <input type="text" value={this.state.imageURL} onChange = {this.changeImage} />
-          <br/>
-          
-
-          
+          <br/>          
           <input type="submit" value="Add New Campus"/>
         </form>
         <button onClick={this.ChangeDisplay}>Cancel</button>

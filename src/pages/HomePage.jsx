@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import NavBar from '../components/essentials/NavBar'
 
-
 class Home extends Component {
   render(){
     return (

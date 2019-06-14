@@ -1,27 +1,14 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-
-
 import CampusImageCard from '../essentials/CampusImageCard'
-
-/*
-  Props must contain:
-  - campus object with name, address, description, and imgurl fields
-*/
-
 
 class CampusCard extends Component{
   constructor(props)
   {
     super(props);
-    console.log(this.props.location);
     this.state={
       isHidden: false
     }
-  }
-
-  componentDidMount(){
-
   }
 
   render(){

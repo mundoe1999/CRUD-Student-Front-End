@@ -8,7 +8,6 @@ const Home = () => (
       Now this be a functional component 
     </div>
   </div>
-
 );
 
 export default Home;

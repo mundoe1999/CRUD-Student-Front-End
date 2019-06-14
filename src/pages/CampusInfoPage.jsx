@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 import {withRouter} from 'react-router';
-
-//Importing essentials
 import NavBar from "../components/essentials/NavBar";
-
-//importing Specific Elements
 import CampusInformation from '../components/campus/CampusInformation';
 class CampusInfoPage extends Component {
-
 
   //Rendering Page
   render(){

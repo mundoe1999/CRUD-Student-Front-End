@@ -3,14 +3,6 @@ import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 import { fetchAllStudentsThunk, addStudentThunk } from "../../thunks"
 
-// import ImageCard from '../essentials/ImageCard'
-
-/*
-  Props must contain:
-  - campus -> Exact name of campus
-  - studentlist  -> Array of student objects
-*/
-
 
 class StudentList extends Component{
   constructor(props){
@@ -36,7 +28,6 @@ class StudentList extends Component{
   }
 
   ChangeDisplay(event){
-    console.log("Change!");
     this.setState({
       isHidden: !this.state.isHidden
     });
@@ -46,7 +37,6 @@ class StudentList extends Component{
     this.setState({
       firstName: event.target.value
     });
-    console.log(this.state.firstName);
   }
 
 
@@ -77,8 +67,6 @@ class StudentList extends Component{
       email: this.state.email,
       createdAt: "1"
     };
-    console.log(newStudent);
-
 
     this.props.addSingularStudent(newStudent);
     this.props.fetchAllStudents();
@@ -86,8 +74,6 @@ class StudentList extends Component{
     event.preventDefault();
     
   }
-
-
 
   render(){
 

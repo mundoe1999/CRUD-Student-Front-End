@@ -43,6 +43,13 @@
   width: 50%;
 }
 
+.Container {
+  display: table;
+  height: 100%;
+  width: 80%;
+  background-color: rgba(240, 240, 255,0.3);
+}
+
 .Content {
   margin-top: 2em;
   min-height: 100vh;
@@ -53,6 +60,36 @@
 .Content h1{
   color: black;
   padding-bottom: 1em;
+}
+
+.HeaderDivider {
+     border-right:1px solid #16222c; 
+     height:100px;
+     right:50%;
+     top:48.8%;
+     position:absolute;
+}
+
+.HomePageLeft{
+  color: blue;
+  font-size: calc(16px + 3vmin);
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  width: 50%;
+  top:80%;
+  padding: 1rem;
+
+}
+
+.HomePageRight{
+  color: black;
+  font-size: calc(16px + 3vmin);
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  width: 50%;
+  padding: 1rem;
 }
 
 .UserDisplay{
